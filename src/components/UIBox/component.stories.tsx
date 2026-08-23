@@ -1,73 +1,184 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { UIBox } from "./component";
 
-const meta: Meta<typeof UIBox.Article> = {
+import type {
+  UIBoxVariant,
+  UIBoxTextAlign,
+  UIBoxDisplay,
+  UIBoxjustifyContent,
+  UIBoxAItems,
+  UIBoxScroll,
+} from "./types";
+import { UIBanner } from "../UIBanner";
+import { UIText } from "../UIText";
+
+// 타입에 정의된 literal union 값을 스토리북 컨트롤 옵션으로 매핑
+const variantOptions: UIBoxVariant[] = ["content", "flex", "card"];
+const alignOptions: UIBoxTextAlign[] = ["left", "center", "right"];
+const displayOptions: UIBoxDisplay[] = ["flex", "block", "inline-block", "grid"];
+const jContentOptions: UIBoxjustifyContent[] = ["space-between"];
+const aItemsOptions: UIBoxAItems[] = ["top", "middle", "bottom"];
+const scrollOptions: UIBoxScroll[] = ["scroll"];
+
+const meta: Meta<typeof UIBox.Div> = {
   title: "Components/UIBox",
-  component: UIBox.Article, // 기본 컴포넌트로 지정
+  component: UIBox.Div,
   tags: ["autodocs"],
   argTypes: {
-    variant: { control: "radio", options: ["content", "flex", "card"] },
-    bgColor: { control: "radio", options: ["gray", "blue", "pink"] },
-    bgPattern: { control: "radio", options: ["check", "", ""] },
-    display: { control: "select", options: ["block", "flex", "grid"] },
-    jContent: { control: "select", options: ["flex-start", "center", "flex-end", "space-between"] },
-    aItems: { control: "select", options: ["flex-start", "center", "flex-end", "stretch"] },
+    variant: {
+      control: "select",
+      options: variantOptions,
+      description: "UIBox 스타일에 적용할 변형 옵션",
+    },
+
+    align: {
+      control: "select",
+      options: alignOptions,
+      description: "텍스트 정렬 방향",
+    },
+    display: {
+      control: "select",
+      options: displayOptions,
+      description: "디스플레이 형태",
+    },
+    jContent: {
+      control: "select",
+      options: jContentOptions,
+      description: "Flex justify-content 속성",
+    },
+    aItems: {
+      control: "select",
+      options: aItemsOptions,
+      description: "Flex align-items 속성",
+    },
+    scroll: {
+      control: "select",
+      options: scrollOptions,
+      description: "스크롤 적용 여부",
+    },
+    as: {
+      control: "text",
+      description: "렌더링할 HTML 태그 (예: div, article, section)",
+    },
+    className: {
+      control: "text",
+      description: "추가 커스텀 CSS 클래스명",
+    },
   },
 };
 
 export default meta;
+type Story = StoryObj<typeof UIBox.Div>;
 
-// ==========================================
-// 1. Article 컴포넌트 스토리
-// ==========================================
-type ArticleStory = StoryObj<typeof UIBox.Article>;
-
-export const ArticleBox: ArticleStory = {
-  name: "UIBox.Article",
-  render: (args) => <UIBox.Article { ...args } />,
+// 1. UIBox.Article 스토리
+export const ArticleBox: Story = {
   args: {
-    children: (
-      <div style={{ padding: "20px", border: "1px dashed #ccc" }}>
-        아티클 컴포넌트 영역입니다. (내부 콘텐츠)
-      </div>
-    ),
+    as: "article",
+    variant: "content",
+    align: "left",
   },
+  render: (args) => (
+    <UIBox.Article {...args} style={{ padding: "20px" }}>
+      <div>
+        <h3 style={{ margin: "0 0 10px 0" }}>Article 제목</h3>
+        <p style={{ margin: 0 }}>UIBox.Article 레이아웃 내부 콘텐츠입니다.</p>
+      </div>
+    </UIBox.Article>
+  ),
 };
 
-// ==========================================
-// 2. Div 컴포넌트 스토리
-// ==========================================
-type DivStory = StoryObj<typeof UIBox.Div>;
-
-export const DivBox: DivStory = {
-  name: "UIBox.Div",
-  render: (args) => <UIBox.Div { ...args } />,
+// 2. UIBox.Div 스토리
+export const DivBox: Story = {
   args: {
-    bgColor: "gray",
+    as: "div",
+    variant: "card",
     display: "flex",
-    children: (
-      <div style={{ padding: "10px", background: "#ffebd2" }}>
-        Flex 정렬된 내부 자식 요소입니다.
-      </div>
-    ),
+    align: "left",
+    aItems: "top",
+    jContent: "space-between",  
+    children: "UIBox.Div 카드 형태 예시입니다.",
   },
+  render: (args) => (
+    <UIBox.Div {...args} variant="flex" jContent="space-between" aItems="top" className="pt-0">
+    <UIBanner.Wrapper className="mr-5 mb-4" animateOnScroll>
+      <UIBanner.List
+        icon="study"
+        number="2020"
+        variant="list"
+        bgColor="type1"
+        title="ui/ux 스마트웹&앱디자인 (웹 퍼블리싱&프론트엔드) 실무과정"
+        des="(2020.04~2020.10)" 
+        align="left" />
+      <UIBanner.List
+        icon="company"
+        number="2021"
+        variant="list"
+        bgColor="type2"
+        title="인조이웍스(enjoy works)"
+        des="(2021.01 ~ 2022.04)" />
+      <UIBanner.List
+        icon="study"
+        number="2022"
+        variant="list"
+        bgColor="type3"
+        title="[프론트엔드] 리액트 (React.js 자바스크립트)_주말"
+        des="(2022.01 ~2022.04)" />
+      <UIBanner.List
+        icon="company"
+        number="2023"
+        variant="list"
+        bgColor="type4"
+        title="인픽스(INPIX)"
+        des="(2022.06 ~ 재직 중)" />
+      <UIBanner.List
+        icon="study"
+        number="2024"
+        variant="list"
+        bgColor="type5"
+        title="한국방송통신대학교 컴퓨터과학과 편입 (졸업)"
+        des="(2023.09 ~ 2026.08)" />
+      <UIBanner.List
+        icon="company"
+        number="2026"
+        variant="list"
+        bgColor="type6"
+        title="??????"
+        des="(????.?? ~ )" />
+    </UIBanner.Wrapper>
+    
+    <UIBox.Div variant="card">
+      <UIText.Header as="p" font="tenada" size="md" className="mb-1">
+        프로젝트 경험
+      </UIText.Header>
+      <UIText.Header as="p" font="tenada" size="md" color="blue">
+        Project Experience
+      </UIText.Header>
+      <p>리스트 영역</p>
+      <p>리스트 영역</p>
+      <p>리스트 영역</p>
+      <p>리스트 영역</p>
+      <p>리스트 영역</p>
+      <p>리스트 영역</p>
+    </UIBox.Div>
+  </UIBox.Div>    
+  ),
 };
 
-// ==========================================
-// 3. Scroll 컴포넌트 스토리 (이미지 및 링크 포함)
-// ==========================================
-type ScrollStory = StoryObj<typeof UIBox.Scroll>;
 
-export const ScrollBox: ScrollStory = {
-  name: "UIBox.Scroll",
-  render: (args) => <UIBox.Scroll { ...args } />,
+
+// 3. UIBox.Scroll 스토리
+export const ScrollBox: Story = {
   args: {
-    href: "https://github.com", // 이동할 링크
-    imgSrc: "https://picsum.photos/300/200", // 테스트용 랜덤 이미지 주소
-    children: (
-      <p style={{ marginBottom: "10px", fontWeight: "bold" }}>
-        아래 이미지를 클릭하면 해당 링크로 이동합니다.
-      </p>
-    ),
+    as: "div",
+    scroll: "scroll",
+    imgSrc: "https://via.placeholder.com/100",
+    href: "https://example.com",
   },
+  render: (args) => (
+    <UIBox.Scroll {...args} style={{ padding: "20px" }}>
+      <p style={{ margin: "0 0 10px 0" }}>
+        스크롤 영역 및 링크 이미지가 포함된 영역입니다.
+      </p>
+    </UIBox.Scroll>
+  ),
 };

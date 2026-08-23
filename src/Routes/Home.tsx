@@ -164,7 +164,7 @@ function Home() {
                 variant="list"
                 bgColor="type1"
                 title="ui/ux 스마트웹&앱디자인 (웹 퍼블리싱&프론트엔드) 실무과정"
-                des="(20202.04~2020.10)" 
+                des="(2020.04~2020.10)" 
                 align="left" />
               <UIBanner.List
                 icon="company"
@@ -186,7 +186,7 @@ function Home() {
                 variant="list"
                 bgColor="type4"
                 title="인픽스(INPIX)"
-                des="(2022.06 ~ )" />
+                des="(2022.06 ~ 재직 중)" />
               <UIBanner.List
                 icon="study"
                 number="2024"

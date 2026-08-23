@@ -1,87 +1,82 @@
 import React from "react";
+import type { ElementType } from "react";
 import type { UIBoxProps } from "./types";
 import styles from "./styles.module.scss";
 
 export const Article: React.FC<UIBoxProps> = ({
   variant,
-  bgColor,
-  bgPattern,
-  as: UIBox = "article",
+  as: Component = "article",
   align,
   display,
   jContent,
   aItems,
-  className,
+  className = "",
   children,
   ...rest
 }) => {
   const classes = [
     styles["ui-box-article"],
-    styles[`ui-box-${variant}`],
-    styles[`ui-box-${bgColor}`],
-    styles[`ui-box-${bgPattern}`],
-    styles[`ui-box-${align}`],
-    styles[`ui-box-${display}`],
-    styles[`ui-box-${jContent}`],
-    styles[`ui-box-${aItems}`],
+    variant && styles[`ui-box-${variant}`],
+    align && styles[`ui-box-${align}`],
+    display && styles[`ui-box-${display}`],
+    jContent && styles[`ui-box-${jContent}`],
+    aItems && styles[`ui-box-${aItems}`],
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
+  const Tag = Component as ElementType;
+
   return (
-    <article className={`${classes}`} style={{}} {...rest}>
+    <Tag className={classes} {...rest}>
       {children}
-    </article>
+    </Tag>
   );
 };
 
 export const Div: React.FC<UIBoxProps> = ({
   variant,
-  bgColor,
-  bgPattern,
-  as: UIBox = "article",
+  as: Component = "div",
   align,
   display,
   jContent,
   aItems,
-  className,
+  className = "",
   children,
   scroll,
   ...rest
 }) => {
   const classes = [
     styles["ui-box-div"],
-    styles[`ui-box-${variant}`],
-    styles[`ui-box-${bgColor}`],
-    styles[`ui-box-${bgPattern}`],
-    styles[`ui-box-${align}`],
-    styles[`ui-box-${display}`],
-    styles[`ui-box-${jContent}`],
-    styles[`ui-box-${aItems}`],
-    styles[`ui-box-${scroll}`],
+    variant && styles[`ui-box-${variant}`],
+    align && styles[`ui-box-${align}`],
+    display && styles[`ui-box-${display}`],
+    jContent && styles[`ui-box-${jContent}`],
+    aItems && styles[`ui-box-${aItems}`],
+    scroll && styles[`ui-box-${scroll}`],
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
+  const Tag = Component as ElementType;
+
   return (
-    <div className={`${classes}`} style={{}} {...rest}>
+    <Tag className={classes} {...rest}>
       {children}
-    </div>
+    </Tag>
   );
 };
 
 export const Scroll: React.FC<UIBoxProps> = ({
   variant,
-  bgColor,
-  bgPattern,
-  as: UIBox = "div",
+  as: Component = "div",
   align,
   display,
   jContent,
   aItems,
-  className,
+  className = "",
   children,
   scroll,
   imgSrc,
@@ -90,33 +85,35 @@ export const Scroll: React.FC<UIBoxProps> = ({
 }) => {
   const classes = [
     styles["ui-box-div"],
-    styles[`ui-box-${variant}`],
-    styles[`ui-box-${bgColor}`],
-    styles[`ui-box-${bgPattern}`],
-    styles[`ui-box-${align}`],
-    styles[`ui-box-${display}`],
-    styles[`ui-box-${jContent}`],
-    styles[`ui-box-${aItems}`],
-    styles[`ui-box-${scroll}`],
+    variant && styles[`ui-box-${variant}`],
+    align && styles[`ui-box-${align}`],
+    display && styles[`ui-box-${display}`],
+    jContent && styles[`ui-box-${jContent}`],
+    aItems && styles[`ui-box-${aItems}`],
+    scroll && styles[`ui-box-${scroll}`],
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
+  const UIBox = Component as ElementType;
+
   return (
-    <>
-      <div className={`${classes}, ${styles.previewBox}`} style={{}} {...rest}>
-        {children}
+    <UIBox className={`${classes} ${styles.previewBox}`} {...rest}>
+      {children}
+      {href && (
         <a href={href} target="_blank" rel="noreferrer">
           <img src={imgSrc} alt="" />
         </a>
-      </div>
-    </>
+      )}
+    </UIBox>
   );
 };
 
 const UIBox = {
-  Article, Div, Scroll
-}
+  Article,
+  Div,
+  Scroll,
+};
 
 export {UIBox}

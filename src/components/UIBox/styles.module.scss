@@ -53,12 +53,6 @@
   &-grid {display: grid;}
   }
 
-// .ui-box-div {
-//   & > div {background: red;}
-// }
-
-
-
 .grid-2 {
   grid-template-columns: repeat(2, 1fr);
   }
