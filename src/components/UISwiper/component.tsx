@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import type { SwiperProps, SlideItemProps } from "./types";
+import type { SlideItemProps, SwiperProps } from "./types";
 import { Swiper } from "swiper/react";
+import type { Swiper as SwiperClass } from "swiper/types"; // 1. Swiper 타입 임포트
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import styles from "./styles.module.scss";
 import "swiper/css";
@@ -14,9 +15,6 @@ export const Box: React.FC<SwiperProps> = ({
   className,
   titleColor,
 }) => {
-  // const swiperBoxRef = useRef<HTMLDivElement>(null);
-  const swiperBoxRef = useRef<any>(null);
-
   const classes = [
     styles[`ui-swiper`],
     styles[`ui-swiper-${variant}`],
@@ -24,61 +22,37 @@ export const Box: React.FC<SwiperProps> = ({
     styles[`ui-swiper-${titleColor}`],
     className,
   ]
-
     .filter(Boolean)
     .join(" ");
 
-  useEffect(() => {
-    if (swiperBoxRef.current) {
-      // SwiperRef는 Swiper 인스턴스를 반환하므로, 직접적으로 $el에 접근할 수 없음
-      // 대신, onSwiper 이벤트를 사용하여 Swiper 인스턴스 얻어야함
-      // 하지만, 이 방법은 Swiper 인스턴스를 얻는 즉시 실행되므로, useEffect에서 사용하기보다는
-      // onSwiper 이벤트에서 직접 처리
-    }
-  }, [swiperBoxRef]);
-
-  const handleSwiper = (swiper: any) => {
-    if (swiper) {
-      const swiperElement = swiper.el;
-      if (swiperElement) {
-        swiperElement.style.overflow = "visible";
-      }
+  // 2. SwiperClass 타입을 적용하여 any 제거
+  const handleSwiper = (swiper: SwiperClass) => {
+    if (swiper.el) {
+      swiper.el.style.overflow = "visible";
     }
   };
 
   return (
     <Swiper
-      ref={swiperBoxRef}
       onSwiper={handleSwiper}
       modules={[Navigation, Pagination, A11y, Autoplay]}
       spaceBetween={30}
       slidesPerView={1.5}
       breakpoints={{
-        320: {
-          slidesPerView: 1,
-        },
-        480: {
-          slidesPerView: 1,
-        },
-        768: {
-          slidesPerView: 1.5,
-        },
-        1024: {
-          slidesPerView: 1.5,
-        },
-        1280: {
-          slidesPerView: 1.5,
-        },
+        320: { slidesPerView: 1 },
+        480: { slidesPerView: 1.5 },
+        768: { slidesPerView: 1.5 },
+        1024: { slidesPerView: 1.5 },
+        1280: { slidesPerView: 1.5 },
       }}
       navigation={false}
       className={`${styles.swiperBox} ${classes}`}
-      // pagination={{ clickable: true }}
     >
-      <div>{children}</div>
+      {/* 주의: Swiper의 직계 자식은 SwiperSlide여야 합니다 */}
+      {children}
     </Swiper>
   );
 };
-
 export const SlideItem = ({
   title,
   titleColor,
