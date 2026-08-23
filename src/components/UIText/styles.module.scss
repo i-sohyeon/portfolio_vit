@@ -4,8 +4,8 @@
 .ui-text {
   margin: 0;
   padding: 0;
-  line-height: 1.2;
   font-family: "Pretendard";
+  line-height: 1.2;
 
   // font
   &-tenada {font-family: "Tenada";}
@@ -13,25 +13,25 @@
 
   /* Variants */
   &-mainTitle {
-    font-family: "Tenada"; 
+    font-family: "Tenada";
     font-size: rem(80) !important;
-  }
-  
+    }
+
   &-contentTitle {
     display: inline-block;
+    margin: 0 0 rem(48) 0;
     font-family: "Tenada";
     font-size: rem(60) !important;
-    margin: 0 0 rem(48) 0;
-  }
+    }
 
   /* Sizes */
   &-xxs {font-size: rem(12);}
   &-xs {font-size: rem(16);}
-  &-sm {font-size: rem(20)}
+  &-sm {font-size: rem(20);}
   &-md {font-size: rem(24);}
-  &-lg {font-size: rem(28)}
+  &-lg {font-size: rem(28);}
   &-xl {font-size: rem(32);}
-  &-xxl {font-size: rem(36)}
+  &-xxl {font-size: rem(36);}
 
   /* opacity */
   &-10 {opacity: 10%;}
@@ -57,7 +57,7 @@
   &-block {display: block;}
   &-inline {display: inline;}
   &-inline {display: inline;}
-}
+  }
 
 
 /**** UIText.Header ****/
@@ -66,58 +66,58 @@
 
   // size
   &-xl { font-size: rem(80);}
-  &-lg { 
-    font-size: rem(60);
+  &-lg {
     margin-bottom: rem(48);
-  }
+    font-size: rem(60);
+    }
   &-md {
-    font-size: rem(48);
     margin-bottom: rem(24);
-  }
+    font-size: rem(48);
+    }
 
   // color
   &-white {
-    color: #fff;
-  }
+    color: $main-white;
+    }
 
-  /*** a 링크 태그 스타일 ***/ 
+  /*** a 링크 태그 스타일 ***/
   .headerLink {
     color: red;
-  }
+    }
   &:has(a) {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-  }
+    align-items: center;
+    }
 
   a {
     position: relative;
     padding-right: rem(32);
     font-size: rem(20);
-    word-break: keep-all;
     text-align: right;
+    word-break: keep-all;
     transition: .5s;
     &:hover {margin-top: rem(-12);}
 
     &::after {
-      display: inline-block;
       content: "";
+      display: inline-block;
       position: absolute;
-      right: 0;
       top: rem(-1);
-      background-image: url(../../assets/images/icons/ico-arrow-r.png);
+      right: 0;
       width: rem(20);
       height: rem(20);
+      background-image: url(../../assets/images/icons/ico-arrow-r.png);
       background-size: rem(20) rem(20);
+      }
     }
   }
-}
 
 
 // color
-.ui-text-white, .ui-text-header-white {color: #fff;}
-.ui-text-blue, .ui-text-header-blue {color: #3e8ae3;}
-.ui-text-black, .ui-text-header-black {color: #111111;}
+.ui-text-white, .ui-text-header-white {color: $main-white;}
+.ui-text-blue, .ui-text-header-blue {color: $main-blue;}
+.ui-text-black, .ui-text-header-black {color: $main-black;}
 
 .linkTo {font-size: rem(20);}
 
@@ -127,28 +127,28 @@
     &-mainTitle {
       font-family: "Tenada";
       font-size: rem(48) !important;
-    }
+      }
     &-contentTitle {
       display: inline-block;
+      margin: 0 0 48px 0;
       font-family: "Tenada";
       font-size: rem(36) !important;
-      margin: 0 0 48px 0;
-    }
+      }
     &-header {
       &-sm {font-size: rem(24);}
       &-md {
-        font-size: rem(28);
         margin-bottom: rem(20);
+        font-size: rem(28);
         &+.ui-text-header-md:first-child{margin-bottom: 0;}
-      }
+        }
       &-lg {
         font-size: rem(32);
-      }
+        }
       &-xl {
         font-size: rem(44);
+        }
       }
-    }
-    
+
     /* Sizes */
     &-xxs {font-size: rem(11);}
     &-xs {font-size: rem(14);}
@@ -157,7 +157,7 @@
     &-lg {font-size: rem(24);}
     &-xl {font-size: rem(28);}
     &-xxl {font-size: rem(32);}
-  }
+    }
 
-}
+  }
 

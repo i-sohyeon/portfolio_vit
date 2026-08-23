@@ -5,15 +5,19 @@ import styles from "./styles.module.scss";
 export const UIBadge: React.FC<UIBadgeProps> = ({
   variant,
   bgColor,
-  size,
   children,
+  color,
+  size,
   className,
 }) => {
   const classes = [
     styles["ui-badge"],
-    styles[`ui-badge-${variant}`],
     styles[`ui-badge-${bgColor}`],
+    styles[`ui-badge-${color}`],
     styles[`ui-badge-${size}`],
+    styles[`ui-badge-${variant}`],
+
+
     className,
   ]
     .filter(Boolean)
