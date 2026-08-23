@@ -8,6 +8,7 @@
   &-line {
     color: $main-white;
     border: 1px solid $main-white;
+    background-color: transparent !important;
     }
 
   /** bgColor **/
@@ -15,6 +16,18 @@
     color: $main-white;
     background-color: #160b43;
     }
+  &-pink {
+    color: $main-white;
+    background-color: #fa9dcd;
+    }
+  &-transparent {
+    color: $main-black;
+    background-color: transparent;
+    border: 1px solid $main-black;
+    }
+
+  /** color **/ 
+
   /** size **/
   &-sm {
     padding: rem(2) rem(4);

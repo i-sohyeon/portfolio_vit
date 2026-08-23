@@ -13,7 +13,9 @@ export interface UIBannerProps {
   bgColor?: string;
   jContent?: string;
   className?: string;
-  [key: string]: any; // 기타 props 허용
+  align?:string;
+  children?: React.ReactNode;
+  // [key: string]: any; // 기타 props 허용
 }
 
 

@@ -1,4 +1,4 @@
-export type UIBadgeBgColor = "navy" | "pink";
+export type UIBadgeBgColor = "navy" | "pink" | "transparent";
 export type UIBadgeColor = "black" | "white";
 export type UIBadgeSize = "sm" | "md";
 export type UIBadgeVariant = "solid" | "line";
