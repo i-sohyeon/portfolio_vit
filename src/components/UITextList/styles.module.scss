@@ -66,8 +66,8 @@
     margin-bottom: rem(16);
     span {
       display: inline-block;
-      max-width: 55px;
-      max-height: 55px;
+      max-width: rem(55);
+      max-height: rem(55);
       padding: rem(18) rem(8);
       font-family: "tenada";
       font-size: rem(16);
@@ -82,11 +82,11 @@
     div {
       display: block;
       width: 100%;
-      max-width: 305px;
+      max-width: rem(305);
       margin-bottom: rem(16);
       margin-left: rem(28);
       padding: rem(24) rem(20) rem(24) rem(56);
-      border: 2px solid $main-black;
+      border: rem(2) solid $main-black;
       border-radius: rem(24);
 
       box-sizing: border-box;
@@ -128,7 +128,7 @@
       content: "";
       display: inline-block;
       position: absolute;
-      top: 0px;
+      top: 0;
       left: rem(-24);
       width: rem(16);
       height: rem(16);

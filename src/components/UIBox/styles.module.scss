@@ -41,7 +41,7 @@
     width: 100%;
     max-width: 550px;
     height: fit-content;
-    padding: 60px 40px;
+    padding: rem(60) rem(40);
     text-align:left;
     background: $main-yellow;
     border-radius: rem(24);
@@ -71,7 +71,7 @@
   padding: rem(8);
   background-color: $main-black;
   border-radius: rem(8);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, .35);
+  box-shadow: 0 rem(4) rem(15) rgba(0, 0, 0, .35);
   overflow: hidden;
   overflow-y: auto;
 

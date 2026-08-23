@@ -78,8 +78,8 @@
     cursor: pointer;
     > span {
       display: inline-block;
-      width: 6px;
-      height: 6px;
+      width: rem(6);
+      height: rem(6);
       margin: rem(2);
       background-color: $main-dark-gray;
       border-radius: 50%;
@@ -93,8 +93,8 @@
       display: none;
       }
     span:nth-child(2) {
-      width: 12px;
-      height: 12px;
+      width: rem(12);
+      height: rem(12);
       background: $main-blue;
       }
     span:nth-child(3) {
@@ -114,7 +114,7 @@
     right: rem(24);
     padding: rem(16);
     background: rgba(256,256,256,.2);
-    border: 2px solid $main-black;
+    border: rem(2) solid $main-black;
     border-radius: rem(16);
     overflow: visible;
     opacity: 1;

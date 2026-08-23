@@ -1,3 +1,5 @@
+@use "../../styles/style.scss" as *;
+
 .ui-icon {
   display: inline-block;
 
@@ -33,16 +35,16 @@
 
   /** size **/
   &-sm {
-    width: 20px;
-    height: 20px;
+    width: rem(20);
+    height: rem(20);
   }
   &-md {
-    width: 24px;
-    height: 24px;
+    width: rem(24);
+    height: rem(24);
   }
   &-lg {
-    width: 36px;
-    height: 36px;
+    width: rem(36);
+    height: rem(36);
   }
 
   /** color **/ 

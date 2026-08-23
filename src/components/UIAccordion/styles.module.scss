@@ -26,8 +26,8 @@
       }
 
     &[aria-expanded="true"] + &-panel {
-      max-height: 300px;     // 펼쳐질 최대 높이
-      padding: 16px 0;
+      max-height: rem(300);     // 펼쳐질 최대 높이
+      padding: rem(16) 0;
       background: $main-black;
       opacity: 1;
       }

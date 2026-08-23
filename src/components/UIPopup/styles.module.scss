@@ -18,14 +18,14 @@
   top: 50%;
   left: 50%;
   width: 100%;
-  max-width: 1000px;
+  max-width: rem(1000);
   padding: rem(12) rem(12) rem(36);
   text-align: center;
   background: white;
-  border-radius: 12px;
+  border-radius: rem(12);
   transform: translate(-50%, -50%);
   .content {
-    height: 680px;
+    height: rem(680);
     overflow-y: scroll;
     img{width: 100%;}
     }
