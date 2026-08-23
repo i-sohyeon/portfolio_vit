@@ -192,8 +192,8 @@ function Home() {
                 number="2024"
                 variant="list"
                 bgColor="type5"
-                title="한국방송통신대학교 컴퓨터과학과 편입 (재학중)"
-                des="(2023.09 ~ )" />
+                title="한국방송통신대학교 컴퓨터과학과 편입 (졸업)"
+                des="(2023.09 ~ 2026.08)" />
               <UIBanner.List
                 icon="company"
                 number="2026"
