@@ -419,7 +419,7 @@ function Home() {
                               ],
                             },
                           ]}  
-                          style={{maxWidth: "650px"}}/>
+                        />
                     </div>
                   )
                 }
@@ -471,7 +471,41 @@ function Home() {
                         <div>
                           <img src={`${import.meta.env.BASE_URL}assets/images/swiper/nhbank.png`} alt="" />
                         </div>
-                        <p><br/>해당 팝업 영역은 현재 이미지 작업중입니다. <br/> <strong>경력 기술서</strong>를 확인해주세요!<br/> 현재는 [문구야놀자] 슬라이드부터 팝업 이미지를 확인하실 수 있습니다!! </p>
+                        <UIText.Basic size="md" className="mt-10 mb-6 pl-2" align="left" as="p" weight="bold">✅ 주요 업무 및 담당 역할</UIText.Basic>
+                        <UITextList.Nested 
+                          color="black"
+                          align="left"
+                          nestedItems={[
+                            {
+                              id: 1,
+                              name: "주요 업무 및 담당 역할",
+                              children: [
+                                { id: 1-1, name: "- HTML 마크업 및 CSS 스타일링 작업" },
+                                { id: 1-2, name: "- 기본적인 JavaScript, jQuery를 활용한 동적 기능 구현" },
+                                { id: 1-3, name: "- 다크모드 및 라이트모드 대응 UI 퍼블리싱" },
+                                { id: 1-4, name: "- WebView 기반의 In-App 연동 구조에 맞춘 퍼블리싱 구조 설계" },
+                              ],
+                            },
+                            {
+                              id: 2,
+                              name: "기술",
+                              children: [{ id: 2-1, name: "HTML, CSS(SCSS), JavaScript, jQuery, Git, AdobeXD" }],
+                            },
+                            {
+                              id: 3,
+                              name: "상세 성과 및 작업 내용",
+                              children: [
+                                { id: 3-1, name: "- WebView 환경 최적화: 하이브리드 앱(WebView) 환경에 맞춰 퍼블리싱 구조를 설계하고, 모바일 In-App 연동방식에 맞게 화면 구현." },
+                                { id: 3-2, name: "- 다크모드 / 라이트모드 대응, 큰글씨 모드 대응: 사용자 설정에 따라 다크/라이트 테마 UI 및 큰글씨 모드 구현" },
+                                { id: 3-3, name: "- 웹접근성 준수: 웹접근성 심사를 대비해 시맨틱 마크업, aria 속성, 키보드 접근성 등을 준수한 HTML 구조 적용 스크린 리더 호환성 개선(웹 접근성 인증 마크 획득으로 서비스의 신뢰도 및 품질 향상)" },
+                                { id: 3-4, name: "- 웹접근성 관련 이슈 대응: 사전 점검 및 심사 중 발견된 웹접근성 이슈를 빠르게 파악하여 수정." },
+                                { id: 3-5, name: "- iOS/Android 스타일 오류 디버깅: 각 OS별 WebView 환경 차이로 발생하는 CSS·렌더링 오류를 디버깅 및 수정하여 동일한 사용자 경험 제공" },
+                                { id: 3-6, name: "- 개발 협업 및 이슈 대응: 개발팀과의 협업을 통해 기능 구현 중 발생한 퍼블리싱/JS 관련 이슈에 대해 빠르게 수정 및 보완" },
+                               
+                              ],
+                            },
+                          ]}  
+                        />
                     </div>
                   )
                 }
@@ -519,9 +553,42 @@ function Home() {
                     <div className="">
                       {/* 팝업에 나올 전용 내용 */}
                         <div>
-                          <img src={`${import.meta.env.BASE_URL}assets/images/swiper/kbbank.png`} alt="" />
+                          <img src={`${import.meta.env.BASE_URL}assets/images/swiper/nhbank.png`} alt="" />
                         </div>
-                        <p><br/>해당 팝업 영역은 현재 이미지 작업중입니다. <br/> <strong>경력 기술서</strong>를 확인해주세요!<br/> 현재는 [문구야놀자] 슬라이드부터 팝업 이미지를 확인하실 수 있습니다!! </p>
+                        <UIText.Basic size="md" className="mt-10 mb-6 pl-2" align="left" as="p" weight="bold">✅ 주요 업무 및 담당 역할</UIText.Basic>
+                        <UITextList.Nested 
+                          color="black"
+                          align="left"
+                          nestedItems={[
+                            {
+                              id: 1,
+                              name: "주요 업무 및 담당 역할",
+                              children: [
+                                { id: 1-1, name: "- HTML 마크업 및 SCSS 스타일 작업" },
+                                { id: 1-2, name: "- 그룹 멤버십 메인, 회원관리/로그인, 리워드·등급·전략패키지 등 서비스 중 리워드 등급 화면 퍼블리싱" },
+                                { id: 1-3, name: "- 계열사 연계 플랫폼과의 회원 관리 화면, 관리자용 직원포털, 상담직원용 화면 퍼블리싱" },
+                                { id: 1-4, name: "- 웹접근성 심사 기준을 준수한 시맨틱 마크업 작성" },
+                              ],
+                            },
+                            {
+                              id: 2,
+                              name: "기술",
+                              children: [{ id: 2-1, name: "HTML, CSS(SCSS), JavaScript, jQuery, Gulp, Figma" }],
+                            },
+                            {
+                              id: 3,
+                              name: "상세 성과 및 작업 내용",
+                              children: [
+                                { id: 3-1, name: "- 컴포넌트화를 통해 화면 요소의 재사용성을 높여 유지보수 효율성 향상" },
+                                { id: 3-2, name: "- SCSS의 mixin, function, include, 변수 선언을 활용하여 코드 작성 시간을 단축하고 가독성 개선." },
+                                { id: 3-3, name: "- CSS Comb 플러그인을 활용해 코드 포맷 자동 정렬 및 프로퍼티 순서 통일화  팀 내 일관된 코드 스타일 유지" },
+                                { id: 3-4, name: "- Gulp task runner를 사용하여 빌드 자동화 및 작업 효율성 향상" },
+                                { id: 3-5, name: "- 금융권 서비스의 특성에 맞춰 웹접근성 표준을 준수한 시맨틱 마크업 작성  심사 통과에 기여" },
+                                { id: 3-6, name: "- 코드 작성 시 캡슐화 및 확장성을 고려한 구조 설계로 향후 재사용 및 유지보수 용이성 확보" },
+                              ],
+                            },
+                          ]}  
+                        />
                     </div>
                   )
                 }
