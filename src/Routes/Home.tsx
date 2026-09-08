@@ -553,7 +553,7 @@ function Home() {
                     <div className="">
                       {/* 팝업에 나올 전용 내용 */}
                         <div>
-                          <img src={`${import.meta.env.BASE_URL}assets/images/swiper/nhbank.png`} alt="" />
+                          <img src={`${import.meta.env.BASE_URL}assets/images/swiper/kbbank.png`} alt="" />
                         </div>
                         <UIText.Basic size="md" className="mt-10 mb-6 pl-2" align="left" as="p" weight="bold">✅ 주요 업무 및 담당 역할</UIText.Basic>
                         <UITextList.Nested 
