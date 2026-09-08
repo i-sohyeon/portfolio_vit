@@ -384,7 +384,42 @@ function Home() {
                         <div>
                           <img src={`${import.meta.env.BASE_URL}assets/images/swiper/wooribank.png`} alt="" />
                         </div>
-                        <p><br/>해당 팝업 영역은 현재 이미지 작업중입니다. <br/> <strong>경력 기술서</strong>를 확인해주세요!<br/> 현재는 [문구야놀자] 슬라이드부터 팝업 이미지를 확인하실 수 있습니다!! </p>
+                        <UIText.Basic size="md" className="mt-10 mb-6 pl-2" align="left" as="p" weight="bold">✅ 주요 업무 및 담당 역할</UIText.Basic>
+                        <UITextList.Nested 
+                          color="black"
+                          align="left"
+                          nestedItems={[
+                            {
+                              id: 1,
+                              name: "주요 업무 및 담당 역할",
+                              children: [
+                                { id: 1-1, name: "- React를 활용한 UI 컴포넌트 마크업 및 스타일 작업" },
+                                { id: 1-2, name: "- 금융 서비스 내 인증·보안, 이벤트, 공지사항 관련 화면 퍼블리싱 및 구축" },
+                                { id: 1-3, name: "- 기획·디자인·개발팀과 협업하여 컴포넌트 설계 및 UI/UX 개선 의견 제안" },
+                                { id: 1-4, name: "- 웹접근성 가이드 준수한 마크업 작업으로 웹접근성 인증 마크 획득에 기여" },
+                              ],
+                            },
+                            {
+                              id: 2,
+                              name: "기술",
+                              children: [{ id: 2-1, name: "React, JavaScript(TypeScript), CSS(SCSS), Git, Figma" }],
+                            },
+                            {
+                              id: 3,
+                              name: "상세 성과 및 작업 내용",
+                              children: [
+                                { id: 3-1, name: "- Storybook 디자인 시스템을 활용하여 재사용 가능한 UI 컴포넌트 구현 및 화면 구축 효율성 향상." },
+                                { id: 3-2, name: "- OTP·본인 인증·이벤트·공지사항 등 금융 서비스 화면의 마크업 작업 수행. " },
+                                { id: 3-3, name: "- 웹접근성 표준을 준수한 마크업 및 시맨틱 구조 설계  프로젝트에서 웹접근성 인증 마크 획득에 기여" },
+                                { id: 3-4, name: "- 웹 접근성 관련 이슈 대응(ios: voice over, aos: talk back)" },
+                                { id: 3-5, name: "- 이벤트 페이지의 룰렛 돌리기, 복권 긁기, 출석체크 등 미니게임 UI를 주도적으로 구현하여 사용자 경험 강화" },
+                                { id: 3-6, name: "- SCSS 변수화·모듈화, 컴포넌트 가이드 정립으로 팀 내 퍼블리싱 가이드라인 수립에 기여" },
+                        
+                                
+                              ],
+                            },
+                          ]}  
+                          style={{maxWidth: "650px"}}/>
                     </div>
                   )
                 }

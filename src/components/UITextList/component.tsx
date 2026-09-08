@@ -5,8 +5,11 @@ import type {
   UITextListCircleProps,
   UITextListNormalProps,
   UITextListNestedProps,
+  NestedItem,
 } from "./types";
+
 import styles from "./styles.module.scss";
+
 
 export const Normal: React.FC<UITextListNormalProps> = ({
   variant,
@@ -14,7 +17,7 @@ export const Normal: React.FC<UITextListNormalProps> = ({
   className,
 }) => {
   const classes = [
-    styles[`ui-textList`],
+    styles["ui-textList"],
     styles[`ui-textList-${variant}`],
     className,
   ]
@@ -29,6 +32,7 @@ export const Normal: React.FC<UITextListNormalProps> = ({
     </ul>
   );
 };
+
 
 export const Check: React.FC<UITextListCheckProps> = ({
   variant,
@@ -37,10 +41,9 @@ export const Check: React.FC<UITextListCheckProps> = ({
   size,
 }) => {
   const classes = [
-    styles[`ui-textList`],
+    styles["ui-textList"],
     styles[`ui-textList-${variant}`],
     styles[`ui-textList-${size}`],
-    
     className,
   ]
     .filter(Boolean)
@@ -55,55 +58,82 @@ export const Check: React.FC<UITextListCheckProps> = ({
   );
 };
 
+
 export const Nested: React.FC<UITextListNestedProps> = ({
   variant,
   nestedItems,
   className,
-  children,
+  color,
+  align,
   style,
-  size,
   ...rest
 }) => {
   const classes = [
-    styles[`ui-nested`],
+    styles["ui-nested"],
     styles[`ui-nested-${variant}`],
+    styles[`ui-nested-${align}`],
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
-  const renderList = (items: any[], isFirstLevel: boolean = true) => {
+  const renderList = (
+    items: NestedItem[],
+    isFirstLevel = true
+  ) => {
+    const colorClass = isFirstLevel
+      ? styles[`ui-nested-${color}`]
+      : styles[`ui-nested-${color}`];
+
     return (
       <ul
-        className={
+        className={[
           isFirstLevel
             ? styles.firstLevelList
-            : `${styles.nestedList} ${classes}`
-        }>
+            : styles.nestedList,
+          colorClass,
+          classes,
+        ]
+          .filter(Boolean)
+          .join(" ")}
+      >
         {items.map((item) => (
           <li
             key={item.id}
             className={
-              isFirstLevel ? styles.firstLevelItem : styles.nestedItem
-            }>
+              isFirstLevel
+                ? styles.firstLevelItem
+                : styles.nestedItem
+            }
+          >
             <span>{item.name}</span>
-            {item.children && renderList(item.children, false)}
+
+            {item.children &&
+              renderList(item.children, false)}
           </li>
         ))}
       </ul>
     );
   };
 
-  return <div className={styles.testDiv} style={style} {...rest}>
-    {renderList(nestedItems)}
-    </div>;
+  return (
+    <div
+      className={styles.testDiv}
+      style={style}
+      {...rest}
+    >
+      {renderList(nestedItems)}
+    </div>
+  );
 };
+
 
 function ItemComponent(props: { item: ItemData }) {
   return (
     <li>
       <span>{props.item.number}</span>
-      <div style={{}}>
+
+      <div>
         <h3>{props.item.title}</h3>
         <p>{props.item.subText}</p>
       </div>
@@ -111,41 +141,33 @@ function ItemComponent(props: { item: ItemData }) {
   );
 }
 
+
 export const Circle: React.FC<UITextListCircleProps> = ({
   variant,
-  className,
-  bgColor,
   ...props
 }) => {
   const classes = [
-    styles[`ui-textList`],
+    styles["ui-textList"],
     styles[`ui-textList-${variant}`],
-    styles[`ui-textList-${bgColor}`],
-    // styles[`ui-textList-${size}`],
-    // styles[`ui-textListå-${weight}`],
-    // styles[`ui-textList-${font}`],
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <ul {...props} className={`${styles.circleList} ${classes}`}>
+    <ul
+      {...props}
+      className={`${styles.circleList} ${classes}`}
+    >
       {props.data.map((item) => (
-        <ItemComponent key={item.id} item={item} />
+        <ItemComponent
+          key={item.id}
+          item={item}
+        />
       ))}
     </ul>
   );
 };
 
-// export default function Circle(props: UITextListCircleProps) {
-//   return (
-//     <div {...props}>
-//       {props.data.map((item) => (
-//         <ItemComponent key={item.id} item={item} />
-//       ))}
-//     </div>
-//   );
-// }
 
 const UITextList = {
   Normal,
@@ -157,6 +179,6 @@ const UITextList = {
 UITextList.Normal.displayName = "UITextList.Normal";
 UITextList.Nested.displayName = "UITextList.Nested";
 UITextList.Check.displayName = "UITextList.Check";
-UITextList.Check.displayName = "UITextList.Circle";
+UITextList.Circle.displayName = "UITextList.Circle";
 
 export { UITextList };

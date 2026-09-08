@@ -207,7 +207,7 @@ function Sub() {
                 </UIBadge>
               </div>
             </UIBox.Div>
-            <UITextList.Nested nestedItems={data01}  style={{maxWidth: "650px"}}/>
+            <UITextList.Nested color="white" nestedItems={data01}  style={{maxWidth: "650px"}}/>
           </UIBox.Div>
 
           <UIDivider variant="type2" margin="60px 0" />
@@ -232,7 +232,7 @@ function Sub() {
               </div>
 
             </UIBox.Div>
-            <UITextList.Nested nestedItems={data02} style={{maxWidth: "650px"}}/>
+            <UITextList.Nested color="white" nestedItems={data02} style={{maxWidth: "650px"}}/>
           </UIBox.Div>
 
           <UIDivider variant="type2" margin="60px 0" />
@@ -254,7 +254,7 @@ function Sub() {
               </div>
             </UIBox.Div>
 
-            <UITextList.Nested nestedItems={data03} style={{maxWidth: "650px"}} />
+            <UITextList.Nested color="white" nestedItems={data03} style={{maxWidth: "650px"}} />
           </UIBox.Div>
 
           <UIDivider variant="type2" margin="60px 0" />
@@ -280,7 +280,7 @@ function Sub() {
               </div>
             </UIBox.Div>
 
-            <UITextList.Nested nestedItems={data04} style={{maxWidth: "650px"}} />
+            <UITextList.Nested color="white" nestedItems={data04} style={{maxWidth: "650px"}} />
           </UIBox.Div>
 
           <UIDivider variant="type2" margin="60px 0" />
@@ -302,7 +302,7 @@ function Sub() {
                 </UIBadge>
               </div>
             </UIBox.Div>
-            <UITextList.Nested nestedItems={data05} style={{maxWidth: "650px"}} />
+            <UITextList.Nested color="white" nestedItems={data05} style={{maxWidth: "650px"}} />
           </UIBox.Div>
         </UIBox.Article>
       </UIContent>

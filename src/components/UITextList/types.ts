@@ -1,8 +1,9 @@
 export type UITextListVariant = "circle" | "number" | "check";
 export type UITextListSize = "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
 export type UITextListWeight = "normal" | "bold";
-export type UITextListStyle = "tenada" | "bold";
-export type UITextListBgColor = "type1" | "type2" | "type3" | "type4" | "type5";
+export type UITextListStyle = "tenada" | "petendard";
+export type UITextListColor = "black" | "white";
+export type UITextListAlign = "left" | "center";
 
 export interface UITextListNormalProps
   extends React.HTMLAttributes<HTMLElement> {
@@ -23,7 +24,13 @@ export interface UITextListCheckProps
   color?: string;
   font?: UITextListStyle;
   as?: React.ElementType;
-  checkItems: string[]; // 리스트에 보여질 문자열 배열
+  checkItems: string[];
+}
+
+export interface NestedItem {
+  id: number | string;
+  name: string;
+  children?: NestedItem[];
 }
 
 export interface UITextListNestedProps
@@ -31,16 +38,19 @@ export interface UITextListNestedProps
   variant?: UITextListVariant;
   size?: UITextListSize;
   weight?: UITextListWeight;
-  color?: string;
+  color?: UITextListColor;
+  align?: UITextListAlign;
   font?: UITextListStyle;
-  style?: React.CSSProperties; // style prop 추가
+  style?: React.CSSProperties;
   as?: React.ElementType;
-  nestedItems: {
-    id: number;
-    name: string;
-    children?: { id: number; name: string; children?: any }[];
-  }[];
-  className?: string;
+  nestedItems: NestedItem[];
+}
+
+export interface ItemData {
+  id?: number;
+  number?: number;
+  title?: string;
+  subText?: string;
 }
 
 export interface UITextListCircleProps
@@ -50,20 +60,6 @@ export interface UITextListCircleProps
   weight?: UITextListWeight;
   color?: string;
   font?: UITextListStyle;
-  bgColor?: UITextListBgColor;
   as?: React.ElementType;
-}
-
-export interface ItemData {
-  id?: number;
-  number?: number;
-  title?: string;
-  subText?: string;
-  bgColor?: UITextListBgColor;
-}
-
-export interface UITextListCircleProps
-  extends React.HTMLAttributes<HTMLElement> {
   data: ItemData[];
-  bgColor?: UITextListBgColor;
 }
